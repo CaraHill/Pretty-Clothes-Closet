@@ -17,30 +17,30 @@ RSpec.describe ProductsController, :type => :controller do
     end
 
     it "assigns products to an instance variable" do
-      Product.create(name: "robot", image: "image",price: 2000, description: "old robot")
+      Product.create(name: "robot", image: "image",price: 2000, description: "old robot", category: "dress")
       get :index
       expect(assigns(:products)).to eq(Product.all)
     end
 
   end
 
-  # describe "#show" do
+  describe "#show" do
 
-  #   describe "response" do
-  #     before do
-  #       product = Product.create(name: "robot", image: "image",price: 2000, description: "old robot")
-  #       get :show, id: product.id
-  #     end
+    describe "response" do
+      before do
+        product = Product.create(name: "robot", image: "image",price: 2000, description: "old robot", category: "dress")
+        get :show, id: product.id
+      end
 
-  #     it "returns a HTTP ok status" do
-  #       expect(response).to have_http_status(:ok)
-  #     end
+      it "returns a HTTP ok status" do
+        expect(response).to have_http_status(:ok)
+      end
 
-  #     it "renders the show template" do
-  #       expect(response).to render_template("show")
-  #     end
-  #   end
+      it "renders the show template" do
+        expect(response).to render_template("show")
+      end
+    end
 
-  # end
+  end
 
 end
