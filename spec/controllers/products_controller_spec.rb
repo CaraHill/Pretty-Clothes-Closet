@@ -25,12 +25,12 @@ RSpec.describe ProductsController, :type => :controller do
   end
 
   describe "#show" do
+    before do
+      @product = Product.create(name: "robot", image: "image",price: 2000, description: "old robot", category: "dress")
+      get :show, id: @product.id
+    end
 
     describe "response" do
-      before do
-        product = Product.create(name: "robot", image: "image",price: 2000, description: "old robot", category: "dress")
-        get :show, id: product.id
-      end
 
       it "returns a HTTP ok status" do
         expect(response).to have_http_status(:ok)
@@ -41,6 +41,9 @@ RSpec.describe ProductsController, :type => :controller do
       end
     end
 
+    it "shows the correct product" do
+      expect(assigns(:product)).to eq(Product.find(@product.id))
+    end
   end
 
 end
