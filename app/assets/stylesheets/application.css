@@ -15,3 +15,5 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "site_main";
+@import "product_gallery";
