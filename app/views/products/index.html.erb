@@ -1,9 +1,11 @@
-<ul class="gallery">
-  <% @products.each do |product| %>
-    <li>
-      <p><img height="200px" src="<%= product.image %>"</p>
-      <p><h3><%= link_to product.name, product_path(product.id) %></h3></p>
-      <p>$<%= product.price %><p>
-    </li>
-  <%end%>
-</ul>
+<div class="product-gallery">
+  <ul>
+    <% @products.each do |product| %>
+      <li>
+        <p><img height="200px" src="<%= product.image %>"</p>
+        <p><h3><%= link_to product.name, product_path(product.id) %></h3></p>
+        <p>$<%= product.price %><p>
+      </li>
+    <%end%>
+  </ul>
+</div>
